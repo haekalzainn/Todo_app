@@ -15,5 +15,5 @@ class TodoRepository(private val todoDao: TodoDao) {
     suspend fun deleteTodoById(todoId: Int) = todoDao.deleteTodoById(todoId)
 
     suspend fun updateTodoCompleted(todoId: Int, isCompleted: Boolean) =
-        todoDao.updateTodoCompleted(todoId, isCompleted)
+        todoDao.updateTodoCompleted(todoId, isCompleted, Todo.getCurrentDateTimeString())
 }
