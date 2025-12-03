@@ -33,6 +33,11 @@ class TodoAdapter(
         fun bind(todo: Todo) {
             binding.apply {
                 tvTodoTitle.text = todo.title
+                tvTodoDate.text = if (todo.isCompleted) {
+                    "Selesai: ${todo.getCompactFormattedUpdatedDate()}"
+                } else {
+                    "Dibuat: ${todo.getCompactFormattedCreatedDate()}"
+                }
 
                 // Clear previous listener to prevent unwanted triggers
                 cbTodoComplete.setOnCheckedChangeListener(null)
@@ -42,9 +47,11 @@ class TodoAdapter(
                 if (todo.isCompleted) {
                     tvTodoTitle.paintFlags = tvTodoTitle.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
                     tvTodoTitle.alpha = 0.6f
+                    tvTodoDate.alpha = 0.6f
                 } else {
                     tvTodoTitle.paintFlags = tvTodoTitle.paintFlags and Paint.STRIKE_THRU_TEXT_FLAG.inv()
                     tvTodoTitle.alpha = 1.0f
+                    tvTodoDate.alpha = 0.8f
                 }
 
                 // Set listener after setting the checked state

@@ -25,17 +25,33 @@
             app:buttonTint="@color/primary"
             app:useMaterialThemeColors="false" />
 
-        <TextView
-            android:id="@+id/tvTodoTitle"
+        <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:layout_marginStart="12dp"
             android:layout_marginEnd="12dp"
-            android:textSize="16sp"
-            android:textColor="@color/on_surface"
-            android:lineSpacingMultiplier="1.2"
-            android:text="Sample Todo Item" />
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvTodoTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:textColor="@color/on_surface"
+                android:lineSpacingMultiplier="1.2"
+                android:text="Sample Todo Item" />
+
+            <TextView
+                android:id="@+id/tvTodoDate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="12sp"
+                android:textColor="@color/on_surface_variant"
+                android:layout_marginTop="2dp"
+                android:text="03 Desember 2025" />
+
+        </LinearLayout>
 
         <ImageButton
             android:id="@+id/btnDeleteTodo"
